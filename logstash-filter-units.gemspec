@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 	s.summary         = "A filter for performing unit conversions on specified fields."
 	s.description     = "The units filter is used for converting specified fields from one unit of measure to another (or many others)."
 	s.authors         = ["Alex Braun"]
-	s.email           = 'ABraunCCS@gmail.com'
+	s.email           = 'Alex.Braun.VFX@gmail.com'
 	s.homepage        = "http://www.elasticsearch.org/guide/en/logstash/current/index.html"
 	s.require_paths   = ["lib"]
 
