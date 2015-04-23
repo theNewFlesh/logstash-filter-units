@@ -264,6 +264,10 @@ class LogStash::Filters::Units < LogStash::Filters::Base
       
       new_hash = matrix_to_nested_hash(matrix)
       if @root_field
+        # merge old root field data instead of clobbering it
+        if event.include?(@root_field)
+          new_hash = event[@root_field].to_hash.merge(new_hash)
+        end
         new_hash = {@root_field => new_hash}
       end
 
@@ -275,7 +279,8 @@ class LogStash::Filters::Units < LogStash::Filters::Base
         event[key] = value
       end
       return filter_matched(event)
-    rescue StandardError
+    rescue StandardError => e
+      @logger.warn("UnitsPluginError:", :exception => e.message)
       event.tag("_unitsparsefailure")
       return event
     rescue Logstash::ShutdownSignal

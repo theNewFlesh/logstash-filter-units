@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
 	s.name            = 'logstash-filter-units'
-	s.version         = '0.1.1'
+	s.version         = '0.1.2'
 	s.licenses        = ['Apache License (2.0)']
 	s.summary         = "A filter for performing unit conversions on specified fields."
 	s.description     = "The units filter is used for converting specified fields from one unit of measure to another (or many others)."
